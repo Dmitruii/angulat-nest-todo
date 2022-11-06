@@ -1,5 +1,16 @@
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Controller, Get, Inject, Param } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { ActivatesService } from './activates.service';
 
-@Controller('activates')
-export class ActivatesController {}
+@Controller()
+export class ActivatesController {
+
+    constructor (private activatesService: ActivatesService) {}
+
+    @ApiTags('Mail activate')
+    @Get('active/:id')
+    async active(@Param('id') id: number) {
+        return this.activatesService.active(id)
+    }
+
+}

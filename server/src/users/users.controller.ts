@@ -7,7 +7,7 @@ import { Controller, Post, Get, UseGuards, Req, Res, Delete } from '@nestjs/comm
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 import { LoginUserDto } from './dto/login-user.dto';
-import { ApiBadGatewayResponse, ApiBadRequestResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @Controller()
 export class UsersController {
@@ -17,7 +17,6 @@ export class UsersController {
 
   @ApiTags('Auth')
   @Post('signup')
-  @ApiResponse({ status: 400, description: 'User with this email already exist'})
   async signup(@Body() dto: CreateUserDto,
       @Res({ passthrough: true }) response) {
     const { refreshToken, accessToken } = await this.usersService.createUser(dto)

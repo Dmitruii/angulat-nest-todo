@@ -35,7 +35,7 @@ let UsersService = class UsersService {
             throw new common_1.HttpException('User with this email already exist', common_1.HttpStatus.BAD_REQUEST);
         }
         const user = await this.userRepository.create(Object.assign(Object.assign({}, dto), { password: hashPassword }));
-        await this.ActivatesService.createActivate({ isActive: false, activeLink: (0, uuid_1.v4)(), userId: user.id });
+        await this.ActivatesService.createActivate({ isActive: false, activeLink: (0, uuid_1.v4)(), userId: user.id }, user.email);
         const tokenPayload = new create_token_dto_1.CreateTokenDto(user.getDataValue('id'), user.getDataValue('email'));
         const { refreshToken, accessToken } = await this.tokensService.generateTokens(tokenPayload);
         await this.tokensService.saveRefreshToken(refreshToken, user.id);

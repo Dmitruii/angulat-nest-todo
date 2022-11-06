@@ -18,6 +18,7 @@ async function start() {
         .setVersion('1.0')
         .addTag('Auth')
         .addTag('Users')
+        .addTag('Mail activate')
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup(DOC_URL, app, document);

@@ -53,7 +53,6 @@ let UsersController = class UsersController {
 __decorate([
     (0, swagger_1.ApiTags)('Auth'),
     (0, common_3.Post)('signup'),
-    (0, swagger_1.ApiResponse)({ status: 400, description: 'User with this email already exist' }),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_3.Res)({ passthrough: true })),
     __metadata("design:type", Function),

@@ -30,7 +30,7 @@ export class UsersService {
 
     const user = await this.userRepository.create({...dto, password: hashPassword})
 
-    await this.ActivatesService.createActivate({isActive: false, activeLink: uuidv4(), userId: user.id})
+    await this.ActivatesService.createActivate({isActive: false, activeLink: uuidv4(), userId: user.id}, user.email)
 
     const tokenPayload = new CreateTokenDto(user.getDataValue('id'), user.getDataValue('email'))
     const { refreshToken, accessToken } = await this.tokensService.generateTokens(tokenPayload)
