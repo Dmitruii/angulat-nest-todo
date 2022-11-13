@@ -1,4 +1,3 @@
-import { User } from 'src/users/models/user.model';
 import { HttpStatus, Param, Body } from '@nestjs/common';
 import { HttpException } from '@nestjs/common';
 import { TokensService } from './../tokens/tokens.service';
