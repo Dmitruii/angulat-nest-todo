@@ -5,7 +5,7 @@ import { ValidationPipe } from './pipes/validation.pipe'
 import * as cookieParser from 'cookie-parser';
 
 const PORT = process.env.PORT ?? 3000
-const DOC_URL = 'api'
+const DOC_URL = 'docs'
 
 async function start() {
   const app = await NestFactory.create(AppModule)

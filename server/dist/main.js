@@ -7,7 +7,7 @@ const swagger_1 = require("@nestjs/swagger");
 const validation_pipe_1 = require("./pipes/validation.pipe");
 const cookieParser = require("cookie-parser");
 const PORT = (_a = process.env.PORT) !== null && _a !== void 0 ? _a : 3000;
-const DOC_URL = 'api';
+const DOC_URL = 'docs';
 async function start() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.setGlobalPrefix('api');

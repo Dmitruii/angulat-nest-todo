@@ -1,4 +1,3 @@
-import { User } from 'src/users/models/user.model';
 import { TokensService } from './../tokens/tokens.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
@@ -14,6 +13,6 @@ export declare class UsersController {
         token: any;
     }>;
     logout(response: any, request: any): Promise<void>;
-    getAllUsers(): Promise<User[]>;
-    getUser(id: number): Promise<User>;
+    getAllUsers(): Promise<import("./models/user.model").User[]>;
+    getUser(id: number): Promise<import("./models/user.model").User>;
 }
