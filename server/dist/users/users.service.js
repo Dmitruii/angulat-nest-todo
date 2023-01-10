@@ -29,11 +29,11 @@ let UsersService = class UsersService {
     }
     async createUser(dto) {
         const { password, email } = dto;
-        const hashPassword = await bcrypt.hashSync(password, +process.env.HASH_LEVEL);
         const findUser = await this.userRepository.findOne({ where: { email: email } });
         if (findUser) {
             throw new common_1.HttpException('User with this email already exist', common_1.HttpStatus.BAD_REQUEST);
         }
+        const hashPassword = await bcrypt.hashSync(password, +process.env.HASH_LEVEL);
         const user = await this.userRepository.create(Object.assign(Object.assign({}, dto), { password: hashPassword }));
         await this.ActivatesService.createActivate({ isActive: false, activeLink: (0, uuid_1.v4)(), userId: user.id }, user.email);
         const tokenPayload = new create_token_dto_1.CreateTokenDto(user.getDataValue('id'), user.getDataValue('email'));

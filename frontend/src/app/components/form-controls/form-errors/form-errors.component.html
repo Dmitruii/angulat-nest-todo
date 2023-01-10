@@ -1,0 +1,13 @@
+<div *ngIf="errors" class="text-red-500 block m-0">
+    <ng-container *ngIf="errors.required">
+        required
+    </ng-container>
+    
+    <ng-container *ngIf="errors.email">
+        must be email
+    </ng-container>
+
+    <ng-container *ngIf="errors.minlength">
+        length must be {{ errors.minlength.requiredLength }}, now is {{ errors.minlength.actualLength }}
+    </ng-container>
+</div>

@@ -36,18 +36,23 @@ let ActivatesService = class ActivatesService {
                 pass: process.env.SMTP_PASSWORD
             },
         });
-        let message = new mail_1.mailConfig(activate.activeLink, 'dimanaymenko2005@gmail.com', 'Activate link', 'Todo rest api');
-        await transporter.sendMail(message);
+        let message = new mail_1.mailConfig(activate.activeLink, to, 'Activate link', 'Todo rest api');
+        try {
+            await transporter.sendMail(message);
+        }
+        catch (e) {
+            throw new common_2.HttpException(e, common_1.HttpStatus.NON_AUTHORITATIVE_INFORMATION);
+        }
         return activate;
     }
     async active(id) {
         let activate = await this.activateRepository.findOne({ where: { activeLink: id } });
         if (activate) {
-            activate = activate.toJSON();
             if (activate.isActive === true) {
                 return `<h1>You have already actived your account</h1>`;
             }
-            await activate.update({ isActive: true });
+            activate.isActive = true;
+            await activate.save();
             return `<h1>Success</h1>`;
         }
         throw new common_2.HttpException('Bad activate link', common_1.HttpStatus.BAD_REQUEST);

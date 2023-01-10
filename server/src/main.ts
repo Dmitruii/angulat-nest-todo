@@ -12,6 +12,7 @@ async function start() {
 
   app.setGlobalPrefix('api')
   app.use(cookieParser())
+  app.enableCors();
 
   const config = new DocumentBuilder()
       .setTitle('Angular, Nest todo')

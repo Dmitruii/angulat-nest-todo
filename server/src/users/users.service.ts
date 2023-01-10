@@ -21,12 +21,12 @@ export class UsersService {
   async createUser(dto: CreateUserDto) {
     const { password, email } = dto
 
-    const hashPassword = await bcrypt.hashSync(password, +process.env.HASH_LEVEL)
-
     const findUser = await this.userRepository.findOne({ where: { email: email }})
     if (findUser) {
       throw new HttpException('User with this email already exist', HttpStatus.BAD_REQUEST)
     }
+
+    const hashPassword = await bcrypt.hashSync(password, +process.env.HASH_LEVEL)
 
     const user = await this.userRepository.create({...dto, password: hashPassword})
 

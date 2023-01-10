@@ -2,7 +2,6 @@ import { HttpStatus } from '@nestjs/common';
 import { HttpException } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { User } from 'src/users/models/user.model';
 import { ActivateDto } from './dto/activate.dto';
 import { Activate } from './models/activate.model';
 import { mailConfig } from './../configs/mail'
@@ -27,24 +26,27 @@ export class ActivatesService {
       },
     })
 
-    let message = new mailConfig(activate.activeLink, 'dimanaymenko2005@gmail.com', 'Activate link', 'Todo rest api')
+    let message = new mailConfig(activate.activeLink, to, 'Activate link', 'Todo rest api')
     
-    await transporter.sendMail(message)
+    try {
+      await transporter.sendMail(message)
+    } catch (e) {
+      throw new HttpException(e, HttpStatus.NON_AUTHORITATIVE_INFORMATION)
+    }
 
     return activate
   }
 
   async active(id: number) {
     let activate = await this.activateRepository.findOne({where: { activeLink: id }})
-    
-    if (activate) {
-      activate = activate.toJSON()
-      
+
+    if (activate) {      
       if (activate.isActive === true) {
         return `<h1>You have already actived your account</h1>`
       }
 
-      await activate.update({isActive: true})
+      activate.isActive = true
+      await activate.save()
       return `<h1>Success</h1>`
     }
 

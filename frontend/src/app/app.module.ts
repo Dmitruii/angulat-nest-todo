@@ -7,19 +7,39 @@ import { SignInPage } from './pages/signin/signin.component';
 import { SignUpPage } from './pages/signup/signup.component';
 import { IndexPage } from './pages/index/index.component';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormErrorsComponent } from './components/form-controls/form-errors/form-errors.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorInterceptor } from './interceptors/error-interceptor';
+import { GlobalErrorsComponent } from './components/global-errors/global-errors.component';
+import { TasksComponent } from './pages/tasks/tasks.component';
+import { TaskComponent } from './pages/tasks/task/task.component';
+import { MainLayoutComponent } from './components/layouts/main-layout/main-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpPage,
     SignInPage,
-    IndexPage
+    IndexPage,
+    FormErrorsComponent,
+    HeaderComponent,
+    GlobalErrorsComponent,
+    TasksComponent,
+    TaskComponent,
+    MainLayoutComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [JwtAuthGuard],
+  providers: [
+    JwtAuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

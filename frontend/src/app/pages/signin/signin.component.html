@@ -2,32 +2,45 @@
     <div class="bg-main-bg px-4 py-6 rounded w-96">
         <h1 class="text-center mb-3 text-2xl">Sign in</h1>
 
-        <form class="flex flex-col space-y-3">
-            <div class="flex flex-col space-y-1 text-lg">
+        <form class="flex flex-col space-y-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="flex flex-col text-lg">
                 <label for="email">Email</label>
                 <input 
                     id="email"
                     type="email"
                     placeholder="examle@gmail.io" 
-                    class="w-full py-1 px-2.5 rounded outline-none">
+                    class="w-full py-1 px-2.5 rounded outline-none mt-2"
+                    formControlName="email">
+                <form-errors 
+                    [errors]="email.errors" 
+                    *ngIf="email.touched">
+                </form-errors>
             </div>
 
-            <div class="flex flex-col space-y-1 text-lg">
+            <div class="flex flex-col text-lg">
                 <label for="password">Password</label>
                 <input 
                     id="password"
                     type="password"
                     placeholder="password123" 
-                    class="w-full py-1 px-2.5 rounded outline-none">
+                    class="w-full py-1 px-2.5 rounded outline-none mt-2"
+                    formControlName="password">
+                <form-errors 
+                    [errors]="password.errors"
+                    *ngIf="password.touched"
+                ></form-errors>    
             </div>
-
-            <div>
-                <button
-                    type="submit"
-                    class="mt-3 text-white hover:bg-green-700 bg-green-600 w-full text-center py-2 rounded">
-                    Submit
-                </button>
-            </div>
+            
+            <button
+                type="submit"
+                [ngClass]="{
+                    'opacity-50': !isValidForm,
+                    'hover:bg-green-700': isValidForm
+                }"
+                class="mt-3 text-white bg-green-600 w-full text-center py-2 rounded"
+                [disabled]="!isValidForm">
+                {{ isLoading ? 'Loading...' : 'Submit' }}
+            </button>
         </form>
 
         <div class="flex justify-center mt-3">

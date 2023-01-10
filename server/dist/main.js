@@ -12,6 +12,7 @@ async function start() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.setGlobalPrefix('api');
     app.use(cookieParser());
+    app.enableCors();
     const config = new swagger_1.DocumentBuilder()
         .setTitle('Angular, Nest todo')
         .setDescription('Documentation rest api')

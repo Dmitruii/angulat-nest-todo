@@ -26,7 +26,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"example@gmail.com\",\n    \"password\": \"test\"\n}",
+							"raw": "{\n    \"email\": \"asd@gmail.com\",\n    \"password\": \"test\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -55,7 +55,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"example@gmail.com\",\n    \"password\": \"test\"\n}",
+							"raw": "{\n    \"email\": \"asd@gmail.com\",\n    \"password\": \"test\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -140,7 +140,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzAsImVtYWlsIjoiZXhhbXBsZUBnbWFpbC5jb20iLCJpYXQiOjE2Njc3Mjc1MTEsImV4cCI6MTY2NzcyOTMxMX0.OPGo5aPSRizN8iYxutxu5vP2n42P3NMctqHWxcFDRAU",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzAsImVtYWlsIjoiZGltYW5heW1lZG5rbzIwMDVAZ21haWwuY29tIiwiaWF0IjoxNjY3NzYzNTM4LCJleHAiOjE2Njc3NjUzMzh9.1i_r0euE-zgTF-ddKCOM8x7WI_QSFdz_Q6JULwUY0Ds",
 									"type": "string"
 								}
 							]
@@ -200,6 +200,32 @@
 								"api",
 								"user",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "active",
+			"item": [
+				{
+					"name": "Active by email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2852/api/active/37e40f51-44f3-44a3-a129-47d2e1d16eb6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2852",
+							"path": [
+								"api",
+								"active",
+								"37e40f51-44f3-44a3-a129-47d2e1d16eb6"
 							]
 						}
 					},
