@@ -29,12 +29,12 @@ let UsersController = class UsersController {
     }
     async signup(dto, response) {
         const { refreshToken, accessToken } = await this.usersService.createUser(dto);
-        response.cookie('refreshToken', refreshToken, { httpOnly: true });
+        response.cookie('refreshToken', refreshToken, { httpOnly: true, maxAge: 60 * 60 * 24 * 30 });
         return { token: accessToken };
     }
     async signin(dto, response) {
         const { refreshToken, accessToken } = await this.usersService.login(dto);
-        response.cookie('refreshToken', refreshToken, { httpOnly: true });
+        response.cookie('refreshToken', refreshToken, { httpOnly: true, maxAge: 60 * 60 * 24 * 30 });
         return { token: accessToken };
     }
     async logout(response, request) {

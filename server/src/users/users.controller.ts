@@ -19,7 +19,7 @@ export class UsersController {
   async signup(@Body() dto: CreateUserDto,
       @Res({ passthrough: true }) response) {
     const { refreshToken, accessToken } = await this.usersService.createUser(dto)
-    response.cookie('refreshToken', refreshToken, { httpOnly: true })
+    response.cookie('refreshToken', refreshToken, { httpOnly: true,  maxAge: 60 * 60 * 24 * 30 })
 
     return { token: accessToken }
   }
@@ -29,7 +29,7 @@ export class UsersController {
   async signin(@Body() dto: LoginUserDto,
       @Res({ passthrough: true }) response) {
     const { refreshToken, accessToken } = await this.usersService.login(dto)
-    response.cookie('refreshToken', refreshToken, { httpOnly: true })
+    response.cookie('refreshToken', refreshToken, { httpOnly: true, maxAge: 60 * 60 * 24 * 30})
     return { token: accessToken }
   }
 

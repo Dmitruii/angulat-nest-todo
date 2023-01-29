@@ -18,7 +18,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                     this.toastService.handle({
                         type: 'error', 
                         title: error.message,
-                        message: JSON.stringify(error.error)
+                        message: JSON.stringify(error.error.message || error.error)
                     })
                     throw error
                 })

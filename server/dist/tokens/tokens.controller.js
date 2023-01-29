@@ -23,7 +23,7 @@ let TokensController = class TokensController {
     async refresh(request, response) {
         const cookiesRefreshToken = request.cookies.refreshToken;
         const { refreshToken, accessToken } = await this.tokenService.refreshTokens(cookiesRefreshToken);
-        response.cookie('refreshToken', refreshToken, { httpOnly: true });
+        response.cookie('refreshToken', refreshToken, { httpOnly: true, maxAge: 60 * 60 * 24 * 30 });
         return { token: accessToken };
     }
 };
