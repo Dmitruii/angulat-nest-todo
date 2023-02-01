@@ -1,0 +1,27 @@
+{
+  "name": "angular-nest-todo",
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": [
+		"apps/*"
+	],
+  "devDependencies": {
+    "turbo-darwin-arm64": "^1.6.3",
+    "turbo": "^1.6.3"
+  },
+  "scripts": {
+    "dev": "turbo run dev --no-daemon",
+    "build": "turbo run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmitruii/angulat-nest-todo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dmitruii/angulat-nest-todo/issues"
+  },
+  "homepage": "https://github.com/Dmitruii/angulat-nest-todo#readme"
+}
