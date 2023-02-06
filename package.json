@@ -23,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/Dmitruii/angulat-nest-todo/issues"
   },
-  "homepage": "https://github.com/Dmitruii/angulat-nest-todo#readme"
+  "homepage": "https://github.com/Dmitruii/angulat-nest-todo#readme",
+  "packageManager": "npm@8.19.2"
 }

@@ -1,0 +1,25 @@
+<div class="flex flex-col justify-between border-r border-slate-300 border-solid bg-slate-100 h-full">
+    <app-profile></app-profile>
+
+    <div class="overflow-auto p-8">
+        <div class="mb-8 flex items-center bg-white rounded px-3 py-2">
+            <img 
+                src="assets/svg/tasks.svg"
+                class="w-6"
+            >
+            <h1 class="text-xl font-semibold ml-4">All Tasks</h1>
+        </div> 
+
+        <app-folder [title]="'title'"></app-folder>
+        <app-folder [title]="'title'"></app-folder>
+        <app-folder [title]="'title'"></app-folder>
+        <app-folder [title]="'title'"></app-folder>
+        <app-folder [title]="'title'"></app-folder>
+        <app-folder [title]="'title'"></app-folder>
+        <app-folder [title]="'title'"></app-folder>
+        <app-folder [title]="'title'"></app-folder>
+        <app-folder [title]="'title'"></app-folder>
+    </div>
+
+    <app-add-folder></app-add-folder>
+</div>
