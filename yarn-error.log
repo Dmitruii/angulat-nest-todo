@@ -1,0 +1,57 @@
+Arguments: 
+  /Users/naym/.nvm/versions/node/v16.18.0/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /Users/naym/.docker/bin:/Users/naym/.nvm/versions/node/v16.18.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Users/naym/Library/Application Support/JetBrains/Toolbox/scripts
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.18.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  SyntaxError: /Users/naym/Documents/pets/angular-nest-todo/package.json: Unexpected token } in JSON at position 602
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "angular-nest-todo",
+    "version": "1.0.0",
+    "description": "",
+    "workspaces": [
+  		"apps/*"
+  	],
+    "devDependencies": {
+      "turbo-darwin-arm64": "^1.6.3",
+      "turbo": "^1.6.3"
+    },
+    "scripts": {
+      "dev": "turbo run dev --no-daemon",
+      "build": "turbo run build"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Dmitruii/angulat-nest-todo.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Dmitruii/angulat-nest-todo/issues"
+    },
+    "homepage": "https://github.com/Dmitruii/angulat-nest-todo#readme",
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

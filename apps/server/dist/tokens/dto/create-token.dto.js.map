@@ -1,1 +1,0 @@
-{"version":3,"file":"create-token.dto.js","sourceRoot":"","sources":["../../../src/tokens/dto/create-token.dto.ts"],"names":[],"mappings":";;;AAAA,MAAa,cAAc;IAMvB,YAAa,EAAU,EAAE,KAAa;QAClC,IAAI,CAAC,EAAE,GAAG,EAAE,CAAA;QACZ,IAAI,CAAC,KAAK,GAAG,KAAK,CAAA;IACtB,CAAC;CAEJ;AAXD,wCAWC"}

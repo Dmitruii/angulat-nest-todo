@@ -5,6 +5,7 @@
   "workspaces": [
 		"apps/*"
 	],
+  "private": true,
   "devDependencies": {
     "turbo-darwin-arm64": "^1.6.3",
     "turbo": "^1.6.3"
@@ -24,5 +25,5 @@
     "url": "https://github.com/Dmitruii/angulat-nest-todo/issues"
   },
   "homepage": "https://github.com/Dmitruii/angulat-nest-todo#readme",
-  "packageManager": "npm@9.4.2"
+  "packageManager": "yarn@1.22.19"
 }
