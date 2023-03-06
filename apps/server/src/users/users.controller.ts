@@ -27,6 +27,7 @@ export class UsersController {
   @ApiTags('Auth')
   @Post('signin')
   async signin(@Body() dto: LoginUserDto,
+      @Req() request,
       @Res({ passthrough: true }) response) {
     const { refreshToken, accessToken } = await this.usersService.login(dto)
     response.cookie('refreshToken', refreshToken, { httpOnly: true, maxAge: 60 * 60 * 24 * 30})

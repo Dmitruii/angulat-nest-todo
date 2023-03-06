@@ -1,0 +1,24 @@
+<div 
+  [ngClass]="{
+    'opacity-40': isLoading
+  }"
+  class="group relative transition hover:bg-white cursor-pointer flex items-center gap-x-4 px-4 py-3"
+>
+    <img 
+        src="assets/svg/user.svg"
+        class="w-10 rounded-full"
+    >
+
+    <div class="hidden group-hover:block absolute mt-28 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
+          <li>
+            <a (click)="logout()" class="block px-4 py-2 hover:bg-gray-100">Sign out</a>
+          </li>
+        </ul>
+    </div>
+
+    <h1
+      routerLink="/profile/asdasd"
+      class="text-xl truncate font-semibold text-gray-600"
+    >Jenna Stones</h1>
+</div> 

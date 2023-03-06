@@ -36,9 +36,15 @@ export class TokensService {
     async deleteRefreshToken(token: string) {
         if (!token) {
             throw new HttpException('Unauthorized user', HttpStatus.UNAUTHORIZED)
-          }    
+        }    
 
-        return await this.tokenRepository.destroy({ where: { tokenRefresh: token } })
+        try {
+            jwt.verify(token, process.env.JWT_REFRESH_SECRET_TOKEN)
+
+            return await this.tokenRepository.destroy({ where: { tokenRefresh: token } })
+        } catch (e) {
+            throw new HttpException('Unauthorized user', HttpStatus.UNAUTHORIZED)   
+        }
     }
 
     async refreshTokens(token: string) {

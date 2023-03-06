@@ -3,17 +3,22 @@ import { AppModule } from './app.module'
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger"
 import { ValidationPipe } from './pipes/validation.pipe'
 import * as cookieParser from 'cookie-parser';
+import { ExpressAdapter } from '@nestjs/platform-express';
 
 const PORT = process.env.PORT ?? 3000
 const DOC_URL = 'docs'
 
 async function start() {
-  const app = await NestFactory.create(AppModule)
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(), { cors: false })
 
   app.setGlobalPrefix('api')
   app.use(cookieParser())
-  app.enableCors();
-
+  app.enableCors({
+      origin: true,
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+      credentials: true,
+  });
+  
   const config = new DocumentBuilder()
       .setTitle('Angular, Nest todo')
       .setDescription('Documentation rest api')

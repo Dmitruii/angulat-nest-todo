@@ -1,0 +1,45 @@
+<main class="min-h-screen flex flex-col">
+  <div 
+    (click)="back()"
+    class="cursor-pointer m-6 mr-auto flex items-center px-3 py-2 focus:ring-4 hover:underline pr-8"
+  >
+    <svg aria-hidden="true" class="rotate-180 text-black w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+
+    <span class="text-xl font-medium text-center">
+      Back
+    </span>
+  </div>
+
+  <section class="grow relative flex justify-center py-6">
+    <div class="flex items-center container p-4">
+      <div class="flex flex-col break-words bg-white w-full mb-6">
+        <div class="p-6 flex flex-col items-center">
+
+          <div class="cursor-pointer group overflow-hidden relative">
+            <img 
+              src="assets/svg/user.svg" 
+              class="rounded-full w-36 align-middle border-none"
+            >
+            
+            <div
+              class="transition flex items-center justify-center top-0 absolute group-hover:bg-white/30 w-full h-full"
+            >
+              <img 
+                src="assets/svg/edit.svg" 
+                class="opacity-0 transition group-hover:opacity-100 w-10"
+              >
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <input
+              value="Jenna Stones" 
+              class="text-4xl text-center font-semibold leading-normal mb-2 text-blueGray-700 mb-2"
+            >
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

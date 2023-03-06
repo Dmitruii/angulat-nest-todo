@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
 })
 export class TasksComponent {
 
-  constructor() { console.log('asdasdasd') }
+  constructor() {  }
 
 }

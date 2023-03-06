@@ -10,10 +10,6 @@ export class JwtAuthGuard implements CanActivate {
 
     canActivate(): boolean {
         if (!localStorage.getItem('authToken')) {
-            this.toastService.handle({
-                type: 'error', 
-                title: 'Not reqistred'
-            })
             this.router.navigate(['/']);
             return false
         }

@@ -1,0 +1,37 @@
+<div 
+    *ngIf="!isAddTaskForm; else elseBlock" 
+    (click)="open()"
+    class="cursor-pointer mt-2 gap-5 flex items-center">
+    <img 
+        src="assets/svg/plus.svg"
+        class="w-7"
+    >
+    <span class="text-2xl text-gray-500 font-semibold">{{ 'add task' | titlecase }}</span>
+</div>
+
+<ng-template #elseBlock>
+    <form 
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+    >
+        <div class="mb-3">
+            <input
+                placeholder="Task's title"
+                class="w-full rounded border border-gray-600 px-3 py-2 text-xl mb-1" 
+                formControlName="name"
+            >
+            <form-errors
+                [errors]="name.errors"
+                *ngIf="name.touched"
+            ></form-errors>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <button class="transition text-white bg-green-400 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">New tasks</button>
+            <button
+                (click)="close()"
+                class="transition hover:text-white text-gray-600 bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-500 rounded text-lg"
+            >Cancel</button>
+        </div>
+    </form>
+</ng-template>

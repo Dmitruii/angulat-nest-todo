@@ -19,4 +19,9 @@ export class AuthService {
     return this.http.post<{token: string}>(environment.baseApiUrl + '/signin', dto)
   }
 
+  logout(): Observable<any>  {
+    localStorage.removeItem('authToken')
+    return this.http.delete(environment.baseApiUrl + '/logout')
+  }
+
 }

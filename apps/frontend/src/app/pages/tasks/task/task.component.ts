@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-task',
+  selector: 'app-page',
   templateUrl: './task.component.html',
 })
-export class TaskComponent {
+export class TaskPage {
 
-  constructor() {console.log('asdasdasd')}
+  constructor() {}
 
 }

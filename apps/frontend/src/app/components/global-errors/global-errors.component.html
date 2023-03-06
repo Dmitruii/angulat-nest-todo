@@ -1,19 +1,20 @@
-<div *ngIf="toastService.error$ | async as error"
-    [ngClass]="{
-        'bg-red-600': error.type === 'error',
-        'bg-green-600': error.type === 'success',
-        'bg-yellow-600': error.type === 'info'
-    }"
-    class="flex justify-center items-center text-white absolute bottom-0 p-4 w-full"
-> 
-    <div class="space-y-3">
-        <h1>{{ error.title }}</h1>
-        <h2>{{ error.message }}</h2>
+<div class="flex justify-end">
+    <div 
+        *ngIf="toastService.message$ | async as message"
+        [ngClass]="{
+            'bg-red-200 border-red-500 text-red-700': message.type === 'error',
+            'bg-green-200 border-green-500 text-green-700': message.type === 'success',
+            'bg-blue-200 border-blue-500 text-blue-700': message.type === 'info'
+        }"
+        class="m-6 absolute w-96 bottom-0 flex items-center border-t border-b px-4 py-3" 
+    >
+    <div class="flex flex-col">
+            <p class="font-bold">{{ message.title }}</p>
+            <p class="text-sm">{{ message.message }}</p>
     </div>
 
-    <button class="absolute items-center right-5 text-white w-6 h-4
-        after:content-[''] after:bg-white after:h-1 after:w-full after:block after:absolute after:right-0 after:top-2 after:rounded after:rotate-45
-        before:content-[''] before:bg-white before:h-1 before:w-full before:block before:absolute before:right-0 before:bottom-1 before:rounded before:rotate-[-45deg]"
-        (click)="toastService.clear()">
-    </button>
+    <button class="absolute items-center right-5 text-white w-6 h-4 after:content-[''] after:bg-gray-600 after:h-1 after:w-full after:block after:absolute after:right-0 after:top-2 after:rounded after:rotate-45 before:content-[''] before:bg-gray-600 before:h-1 before:w-full before:block before:absolute before:right-0 before:bottom-1 before:rounded before:rotate-[-45deg]"
+            (click)="toastService.clear()">
+        </button>
+    </div>
 </div>

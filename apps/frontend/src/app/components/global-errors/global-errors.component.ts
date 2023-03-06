@@ -8,8 +8,6 @@ import { Router } from '@angular/router';
 })
 export class GlobalErrorsComponent {
 
-  constructor(public toastService: ToastService) { 
-      
-   }
+  constructor(public toastService: ToastService) { }
 
 }

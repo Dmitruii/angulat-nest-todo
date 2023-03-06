@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 
-type MessageType = {type: 'error' | 'info' | 'success', title: string, message?: string}
+type MessageType = { type: 'error' | 'info' | 'success', title: string, message?: string }
 
 @Injectable({
   providedIn: 'root'
 })
 export class ToastService {
 
-  error$ = new Subject<MessageType | null>()
+  message$ = new BehaviorSubject<MessageType | null>(null)
 
   handle(message: MessageType) {
-    this.error$.next(message)
+    this.message$.next(message)
   }
 
   clear() {
-    this.error$.next(null)
+    this.message$.next(null)
   }
   
 }

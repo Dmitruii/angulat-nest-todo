@@ -53,3 +53,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+input[type="color"]::-webkit-color-swatch {
+	border-radius: 50%;
+}
