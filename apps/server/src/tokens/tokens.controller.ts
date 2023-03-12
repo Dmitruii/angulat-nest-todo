@@ -1,6 +1,6 @@
 import { TokensService } from './tokens.service';
 import { Controller, Post, Req, Res } from '@nestjs/common';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller()
 export class TokensController {

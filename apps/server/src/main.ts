@@ -26,6 +26,8 @@ async function start() {
       .addTag('Auth')
       .addTag('Users')
       .addTag('Mail activate')
+      .addTag('Task')
+      .addTag('Tasks folder')
       .build()
   const document = SwaggerModule.createDocument(app, config)
   SwaggerModule.setup(DOC_URL, app, document)

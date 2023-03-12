@@ -7,6 +7,8 @@ import { User } from './users/models/user.model'
 import { ActivatesModule } from './activates/activates.module';
 import { TokensModule } from './tokens/tokens.module';
 import { Token } from 'src/tokens/models/token.model';
+import { TaskFoldersModule } from './task_folders/task_folders.module';
+import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
@@ -26,6 +28,8 @@ import { Token } from 'src/tokens/models/token.model';
     UsersModule,
     ActivatesModule,
     TokensModule,
+    TaskFoldersModule,
+    TasksModule,
   ],
   controllers: [],
   providers: [],
